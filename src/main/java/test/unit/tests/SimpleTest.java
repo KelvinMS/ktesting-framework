@@ -1,4 +1,4 @@
-package test;
+package test.unit.tests;
 
 import core.ExtentTestListeners;
 import org.testng.Assert;
