@@ -6,7 +6,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(ExtentTestListeners.class)
-public class FirstTest {
+public class SimpleTest {
 
     @Test
     private void sampleTestA(){
