@@ -1,4 +1,4 @@
 target/
 *.iml
 .idea/
-*.resources/drivers/
+*/resources/drivers/
