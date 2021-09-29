@@ -72,6 +72,24 @@
         <artifactId>selenium-java</artifactId>
         <version>3.141.59</version>
     </dependency>
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>4.3.3</version>
+        <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.genium-framework/Appium-Support -->
+    <dependency>
+        <groupId>com.github.genium-framework</groupId>
+        <artifactId>Appium-Support</artifactId>
+        <version>1.0.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+    <dependency>
+        <groupId>io.appium</groupId>
+        <artifactId>java-client</artifactId>
+        <version>7.3.0</version>
+    </dependency>
 </dependencies>
 
 </project>
