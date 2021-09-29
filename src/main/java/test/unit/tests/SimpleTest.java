@@ -11,7 +11,7 @@ public class SimpleTest {
     @Test
     private void sampleTestA(){
 
-        Assert.assertTrue(false);
+        Assert.assertEquals(true,false);
     }
 
     @Test

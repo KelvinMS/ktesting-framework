@@ -1,14 +1,14 @@
 package test.unit.tests.web;
 
-import core.CustomAssertion;
+import core.assertions.CustomAssertion;
 import core.DriverHelper;
 import core.ExtentTestListeners;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import test.unit.po.HomePO;
-import test.unit.po.MasterPO;
+import test.unit.po.web.HomePO;
+import test.unit.po.web.MasterPO;
 
 @Listeners(ExtentTestListeners.class)
 public class Home {
