@@ -21,7 +21,6 @@ public class ExtentManager {
     private static final String HTML_TAG_PRE = "<pre>";
     private static final String HTML_TAG_PRE_CLOSE = "</pre>";
 
-
     /**
      * Construction of html Reporter to build the interface of the report
      *
@@ -31,7 +30,7 @@ public class ExtentManager {
         //FileHandler.createDir(new File(EXTENTREPORTPATH));
         if (extentReports == null) {
             File testDirectory = new File(EXTENTREPORTPATH);
-            if(!testDirectory.exists() && !testDirectory.mkdir()){
+            if (!testDirectory.exists() && !testDirectory.mkdir()) {
                 System.out.println("\n\n Test directory doesn't exist");
             }
             htmlReporter = new ExtentHtmlReporter(new File(EXTENTREPORTPATH + "/" + REPORTNAME));
@@ -53,24 +52,37 @@ public class ExtentManager {
      *
      * @param iTestResult
      */
-    public static void setTestParams(ITestResult iTestResult) {
+    public static void setTestParams(ITestResult iTestResult, String kindOfTeste) {
         Object parameterMap = new HashMap();
-
         if (iTestResult.getTestContext().getCurrentXmlTest().getAllParameters().size() > 0) {
             parameterMap = iTestResult.getTestContext().getCurrentXmlTest().getAllParameters();
             //System.out.println("Parameters for Test: " +iTestResult.getMethod().getMethodName()+"\nParameters for Test: "+parameterMap+"");
+        } else {
+            parameterMap = "No parameters Found";
         }
-        ExtentTestListeners.getInstance().debug(HTML_TAG_BR + "Suite: " + iTestResult.getTestContext().getSuite().getName() +HTML_TAG_PRE
-                + HTML_TAG_BR +"Test: " + iTestResult.getTestContext().getName()
-                + HTML_TAG_BR + "Method: " + iTestResult.getMethod().getMethodName()
-                + HTML_TAG_BR + "Params: " + HTML_TAG_BR + parameterMap + HTML_TAG_PRE_CLOSE);
+        switch (kindOfTeste) {
+            case "API":
+                ExtentApiTestListeners.getInstance().debug(HTML_TAG_BR + "Suite: " + iTestResult.getTestContext().getSuite().getName() + HTML_TAG_PRE
+                        + HTML_TAG_BR + "Test: " + iTestResult.getTestContext().getName()
+                        + HTML_TAG_BR + "Method: " + iTestResult.getMethod().getMethodName()
+                        + HTML_TAG_BR + "Params: " + parameterMap + HTML_TAG_PRE_CLOSE);
+                break;
+            default:
+                ExtentTestListeners.getInstance().debug(HTML_TAG_BR + "Suite: " + iTestResult.getTestContext().getSuite().getName() + HTML_TAG_PRE
+                        + HTML_TAG_BR + "Test: " + iTestResult.getTestContext().getName()
+                        + HTML_TAG_BR + "Method: " + iTestResult.getMethod().getMethodName()
+                        + HTML_TAG_BR + "Params: " + HTML_TAG_BR + parameterMap + HTML_TAG_PRE_CLOSE);
+                break;
+
+        }
+
+
     }
 
     /**
      * Set Environment variables at report
-     *
      */
-    public static void setReportParams(){
+    public static void setReportParams() {
         //Environment
         ExtentTestListeners.getRunningReport().setSystemInfo("User Name", System.getProperty("user.name"));
         ExtentTestListeners.getRunningReport().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
@@ -81,11 +93,46 @@ public class ExtentManager {
     }
 
     /**
+     * Set Environment variables at report
+     */
+    public static void setApiReportParams() {
+        //Environment
+        ExtentApiTestListeners.getRunningReport().setSystemInfo("User Name", System.getProperty("user.name"));
+        ExtentApiTestListeners.getRunningReport().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+        ExtentApiTestListeners.getRunningReport().setSystemInfo("OS Name", System.getProperty("os.name"));
+        ExtentApiTestListeners.getRunningReport().setSystemInfo("User language", System.getProperty("user.language"));
+        ExtentApiTestListeners.getRunningReport().setSystemInfo("CPU", System.getProperty("cpu"));
+
+    }
+
+
+    /**
      * Cria uma infoMessage no report
      *
      * @param infoMessage String infoMessage
      */
     public static void info(String infoMessage) {
-        ExtentTestListeners.getInstance().info(infoMessage);
+        if (ExtentApiTestListeners.getKindOfTest() == "API") {
+            ExtentApiTestListeners.getInstance().info(infoMessage);
+        } else {
+            ExtentTestListeners.getInstance().info(infoMessage);
+        }
+    }
+
+    /**
+     * Cria uma infoMessage no report
+     *
+     * @param infoMessage String infoMessage
+     */
+    public static void info(String... infoMessage) {
+        String infoMessages = "";
+        for (String arg : infoMessage) {
+            infoMessages = infoMessages + arg + HTML_TAG_BR;
+        }
+        if (ExtentApiTestListeners.getKindOfTest() == "API") {
+            ExtentApiTestListeners.getInstance().info(infoMessages);
+        } else {
+            ExtentTestListeners.getInstance().info(infoMessages);
+        }
     }
 }
