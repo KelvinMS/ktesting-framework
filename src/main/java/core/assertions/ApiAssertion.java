@@ -1,4 +1,4 @@
-package core;
+package core.assertions;
 
 import com.beust.jcommander.internal.Lists;
 import org.testng.asserts.Assertion;
