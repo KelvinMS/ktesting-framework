@@ -10,7 +10,6 @@ import java.util.List;
 
 public class CustomAssertion extends Assertion {
 
-    //TODO Refazer a logica do assert_messages pois gera mensagens duplicadas
     private static List<String> assert_messages = Lists.newArrayList();
     public static final ThreadLocal<WebDriver> drivers = new ThreadLocal();
     private WebDriver webDriver;
@@ -21,6 +20,7 @@ public class CustomAssertion extends Assertion {
 
     @Override
     public void onBeforeAssert(IAssert a) {
+        assert_messages.clear();
         new ScreenshotManager().takeScreenShot(drivers.get());
     }
 

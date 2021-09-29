@@ -12,6 +12,7 @@ public class ApiAssertion extends Assertion {
 
     @Override
     public void onBeforeAssert(IAssert a) {
+        assert_messages.clear();
         //new ScreenshotManager().takeScreenShot(drivers.get());
     }
 
@@ -33,7 +34,6 @@ public class ApiAssertion extends Assertion {
     @Override
     public void onAssertFailure(IAssert<?> assertCommand, AssertionError ex) {
         assert_messages.add("OnlyOnAssertFailure:" + assertCommand.getMessage());
-
     }
 
     public static List<String> getAssertMessages() {
