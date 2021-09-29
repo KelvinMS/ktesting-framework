@@ -20,4 +20,12 @@ public class HomePO extends MasterPO{
     @FindBy(xpath = "//h2[contains(text(),'Livro em destaque')]")
     public WebElement lblLivroEmDestaque;
 
+    @FindBy(linkText = "Membros")
+    private WebElement btnMembros;
+
+    public MemberPO acessMemberArea(){
+        btnMembros.click();
+        return new MemberPO(driver);
+    }
+
 }
