@@ -2,6 +2,7 @@ package core;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import core.assertions.CustomAssertion;
 import org.testng.*;
 import java.io.IOException;
 import java.util.Iterator;
@@ -13,6 +14,7 @@ public class ExtentTestListeners implements ITestListener, ISuiteListener {
     private static ExtentReports extentReports;
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     private static int totalTestCount;
+    private static final String KIND_OF_TEST = "WEB";
 
 
     /**
@@ -27,6 +29,10 @@ public class ExtentTestListeners implements ITestListener, ISuiteListener {
      */
     public static ExtentTest getInstance() {
         return test.get();
+    }
+
+    public static String getKindOfTest() {
+        return KIND_OF_TEST;
     }
 
     /**
@@ -80,7 +86,7 @@ public class ExtentTestListeners implements ITestListener, ISuiteListener {
         //Retorna o nome do metodo  = ITestResult.getMethod().getMethodName()
         //Retorna o nome do projeto = ITestResult.getTestContext().getName()
         test.set(extentReports.createTest(ITestResult.getTestContext().getName(), ITestResult.getMethod().getDescription()));
-        extentManager.setTestParams(ITestResult);
+        extentManager.setTestParams(ITestResult,getKindOfTest());
         getRunningReport().flush();
         getInstance();
     }
