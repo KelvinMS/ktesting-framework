@@ -1,31 +1,32 @@
-
 <h1 align="center">POC - Test automation using, TestNG + ExtentReport</h1>
 <h2 align="center">ktesting-framework</h2>
-> ### Projeto de automação de testes unitários, BDDs e API
+ 
+<h4 align="center">Automation project integrating Unitary tests, BDDs e API</h4>
 
-# Clone and Run
+<br>
 
+### Features
+
+- [x] Unitary Tests
+- [x] API Testes
+- [ ] BDD
+
+<br><br>
 Para Executar o projeto execute os seguintes passos
 
-- #####  Clone
-
-  Clonar projeto
-
+- ### Clone
   ```
   git clone <endereco_do_repositorio>
   ```
-
-- ##### Test web - running by commandline
-
-
+- ### Test web - running with mvn(maven)
 
   ```
-  $  mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/suites/suiteTeste.xml
+  $ mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/suites/suiteTeste.xml
   ```
 
-App suite execution is still at TODO
+🚧 App suite execution is still in construction 🚧
 
-
+<br>
 
 ### Technologies used:
 
