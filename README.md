@@ -1,7 +1,7 @@
-<h1 align="center">POC - Test automation using, TestNG + ExtentReport</h1>
-<h2 align="center">ktesting-framework</h2>
+<h1 align="center">ktesting-framework</h1>
+<h2 align="center">POC - Test automation using, TestNG + ExtentReport</h2>
  
-<h4 align="center">Automation project integrating Unitary tests, BDDs e API</h4>
+<h4 align="center">Automation project integrating Unitary tests, BDDs and API</h4>
 
 <br>
 
@@ -9,22 +9,30 @@
 
 - [x] Unitary Tests
 - [x] API Testes
+- [x] Base64 screenshot
 - [ ] BDD
 
-<br><br>
-Para Executar o projeto execute os seguintes passos
+<br>
 
-- ### Clone
+To execute tests
+
+<br>
+
+- ### Clone projec
   ```
   git clone <endereco_do_repositorio>
   ```
-- ### Test web - running with mvn(maven)
+- ### Test web - running with mvn
 
   ```
   $ mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/suites/suiteTeste.xml
   ```
 
-🚧 App suite execution is still in construction 🚧
+🚧 Mobile suite execution is still in construction 🚧
+
+<br>
+
+🚧 API suite execution is still in construction 🚧
 
 <br>
 
@@ -35,11 +43,13 @@ Para Executar o projeto execute os seguintes passos
         <td>JDK</td>
         <td>Node</td>
         <td>Appium Server</td>
+        <td>Maven</td>
 </tr>
 
 <tr>
     <td>1.8.0</td>
     <td>14.*</td>
     <td>^1.8</td>
+    <td>3.6.*</td>
 </tr>
 </table>
