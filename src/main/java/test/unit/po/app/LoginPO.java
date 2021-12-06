@@ -1,8 +1,10 @@
 package test.unit.po.app;
 
+import core.ScreenshotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class LoginPO extends MasterAppPO{
         @AndroidFindBy(id = "br.westwing.android:id/credential_edittext")
         private MobileElement txtEmail;
 
+        @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'Com quem compartilhar'")
         @AndroidFindBy(id = "br.westwing.android:id/password_edittext")
         private MobileElement txtPassword;
 
@@ -86,6 +89,7 @@ public class LoginPO extends MasterAppPO{
             }*/
             return this;
         }
+
 
         public LoginPO acessarEsqueciMinhaSenha(String email, boolean finalizar){
             wait.until(ExpectedConditions.visibilityOf(btnLogin.get(0))).click();
