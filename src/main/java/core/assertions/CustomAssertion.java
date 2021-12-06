@@ -21,7 +21,8 @@ public class CustomAssertion extends Assertion {
     @Override
     public void onBeforeAssert(IAssert a) {
         assert_messages.clear();
-        new ScreenshotManager().takeScreenShot(drivers.get());
+        //new ScreenshotManager().takeScreenShot(drivers.get());
+        new ScreenshotManager().takeScreenshotToReport(drivers,assert_messages.toString(),ScreenshotManager.ScreenshotStatus.PASS );
     }
 
     @Override
