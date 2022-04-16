@@ -120,7 +120,7 @@ public class Login {
      */
     @AfterMethod
     private void tearDown() {
-        new ScreenshotManager().takeScreenShot(driver);
+        //new ScreenshotManager().takeScreenShot(driver);
         driver.quit();
     }
 

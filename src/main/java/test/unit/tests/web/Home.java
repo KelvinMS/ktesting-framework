@@ -27,6 +27,8 @@ public class Home {
         wait = new MasterPO(driver).getWait();
     }
 
+
+
     @Parameters({"browser", "url", "user", "senha"})
     @Test()
     private void acessarHome(@Optional("chrome") String browser,
@@ -48,7 +50,7 @@ public class Home {
         setup(browser);
         driver.get().get(url);
         MemberPO memberPO = new HomePO(driver).acessMemberArea();
-        assertion.assertEquals(wait.until(ExpectedConditions.visibilityOf(memberPO.lblMembros)).isDisplayed(), false, "Entry at Member page ");
+        assertion.assertEquals(wait.until(ExpectedConditions.visibilityOf(memberPO.lblMembros)).isDisplayed(), true, "Entry at Member page ");
     }
 
     /**
