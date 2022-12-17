@@ -33,15 +33,14 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>${testngFile}</suiteXmlFile>
+                        <suiteXmlFile>src/main/resources/suites/SuiteTesteWeb.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                     <!--forkCount>1</forkCount -->
                     <!--reuseForks>true</reuseForks -->
                     <disableXmlReport>true</disableXmlReport>
-                    <useFile>false</useFile>
+                    <useFile>true</useFile>
                     <encoding>${project.reporting.outputEncoding}</encoding>
-                    <disableXmlReport>true</disableXmlReport>
                     <argLine>-Dfile.encoding=${project.reporting.outputEncoding}</argLine>
                 </configuration>
             </plugin>
@@ -53,7 +52,7 @@
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
-        <version>7.0.0</version>
+        <version>7.5</version> <!--Update to at least vresion 7.2 -->
         <optional>false</optional>
         <scope>test</scope>
     </dependency>
@@ -86,12 +85,6 @@
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
         <version>4.3.3</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.0.0</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
