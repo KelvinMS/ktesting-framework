@@ -28,6 +28,11 @@ To execute tests
   $ mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/suites/suiteTeste.xml
   ```
 
+- ###After run a test
+it'll generate a extentReport.html file, that should be open at browser, and test results will be displayed.
+
+
+<br><br>
 🚧 Mobile suite execution is still in construction 🚧
 
 <br>
