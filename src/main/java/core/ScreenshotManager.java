@@ -1,7 +1,5 @@
 package core;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -23,8 +21,6 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
@@ -92,7 +88,7 @@ public class ScreenshotManager {
         sb.append(base64Image);// CRIAR
         sb.append("\"  src=\"data:image/png;base64, ");
         sb.append(base64Image);// CRIAR  // VAI TER PREVIEW
-        sb.append("\" alt=\"T4GEX SCREENSHOT\" width=\"20%\" /></img></li>");
+        sb.append("\" alt=\"Custom Screenshot\" width=\"20%\" /></img></li>");
         sb.append("</ul></div>");
         return sb.toString();
     }
