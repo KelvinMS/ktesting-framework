@@ -30,8 +30,6 @@ public class ScreenshotManager {
 
 
 
-    //TODO IMPORTANTE
-    // https://www.tutorialspoint.com/create-a-temporary-file-in-java#:~:text=A%20temporary%20file%20can%20be,createTempFile().
     private static final String SCREENSHOTPATH = Paths.get(System.getProperty("user.dir"),"target","ExtentReport").toString();
     private static final String FILENAME = "screenshot.png";
     public static String imagemBASE64;
