@@ -1,17 +1,6 @@
 <h1 align="center">ktesting-framework</h1>
 <h2 align="center">POC - Test automation using, TestNG + ExtentReport</h2>
  
-<h4 align="center">Automation project integrating Unitary tests, BDDs and API</h4>
-
-<br>
-
-### Features
-
-- [x] Unitary Tests
-- [x] API Testes
-- [x] Base64 screenshot
-- [ ] BDD
-
 <br>
 
 To execute tests
